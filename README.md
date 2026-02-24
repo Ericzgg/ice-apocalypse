@@ -1,73 +1,105 @@
-# React + TypeScript + Vite
+# 极寒末日 (Ice Apocalypse)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+简体中文 | [English](./README_EN.md)
 
-Currently, two official plugins are available:
+## 游戏简介
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+《极寒末日》是一款在冰霜末日中生存的策略塔防游戏。玩家需要建造基地、收集资源、制造武器，抵御丧尸和敌对势力的攻击，最终建造火箭逃离末日。
 
-## React Compiler
+## 游戏特色
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🏰 基地系统
+- 升级基地以提升血量、攻击力、攻击范围和体积
+- 基地每10秒自动恢复1%血量
+- 基地每分钟自动生产各类物资
+- 基地周围有坦克和飞机守卫保护
 
-## Expanding the ESLint configuration
+### 🛠️ 资源收集
+- 地图上散落各种资源：钢筋、水泥、芯片、燃料、弹药
+- 靠近资源自动捡取
+- 基地自动生产物资作为稳定收入
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### ⚔️ 武器系统
+- **普通攻击**：点击攻击按钮或按空格键
+- **导弹**：消耗魔法发射跟踪导弹
+- **魔法攻击**：火焰攻击，消耗魔法
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 👥 小弟系统
+- 消耗资源制造坦克和飞机
+- 小弟会自动攻击附近的敌人
+- 小弟有2分钟生存时间
+- 死亡后需要重新制造
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 🛡️ 守卫系统
+- 基地默认配备坦克和飞机守卫
+- 守卫在基地周围巡逻
+- 自动攻击进入范围的敌人
+- 死亡后自动补充
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 🚀 火箭建造
+- 点击"造火箭"按钮上交材料
+- 累计200个材料达到100%即可发射
+- 胜利后可选择继续游玩或重新开始
+
+## 操作说明
+
+### 电脑端
+- **WASD** 或 **方向键**：移动
+- **空格键**：攻击
+- **鼠标点击**：与UI交互
+
+### 触屏设备
+- **左下角摇杆**：移动
+- **右下角按钮**：攻击、导弹、魔法
+- **点击基地**：打开菜单
+
+## 游戏界面
+
+- 左上角：玩家血量、魔法值、背包资源
+- 右上角：尸潮倒计时、小地图
+- 基地菜单：升级、制造飞机、制造坦克、造火箭
+
+## 技术栈
+
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS
+- Canvas API (游戏渲染)
+
+## 安装运行
+
+```bash
+# 安装依赖
+npm install
+
+# 启动开发服务器
+npm run dev
+
+# 构建生产版本
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 局域网联机
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+开发服务器默认支持局域网访问，其他设备可通过 `http://你的IP地址:5173` 访问。
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 版本历史
+
+### v1.0.0
+- 初始版本发布
+- 完整的基地建造和升级系统
+- 资源收集和武器系统
+- 坦克和飞机单位
+- 守卫自动巡逻和战斗
+- 火箭建造和发射
+- 触屏控制支持
+- 性能优化
+
+## 许可证
+
+MIT License
+
+---
+
+祝你在末日中生存下去！❄️🚀
