@@ -1,0 +1,342 @@
+/* 极寒末世 - 游戏样式 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #0a0a1a;
+  font-family: 'Arial', sans-serif;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+/* 防止文本选择 */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* 动画 */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+  }
+  50% {
+    box-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+.animate-bounce {
+  animation: bounce 1s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* 渐变文字 */
+.text-gradient {
+  background: linear-gradient(135deg, #00ff00 0%, #00aaff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 玻璃效果 */
+.glass {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* 按钮样式 */
+.btn-primary {
+  background: linear-gradient(135deg, #00aa00 0%, #008800 100%);
+  border: 2px solid #00ff00;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #00cc00 0%, #00aa00 100%);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #0066aa 0%, #004488 100%);
+  border: 2px solid #00aaff;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, #0088cc 0%, #0066aa 100%);
+  box-shadow: 0 0 20px rgba(0, 170, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+/* 卡片样式 */
+.card {
+  background: rgba(20, 20, 40, 0.9);
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: #00ff00;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+}
+
+.card-selected {
+  border-color: #00ff00;
+  background: rgba(0, 255, 0, 0.1);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+}
+
+/* 进度条 */
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: #333;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00aa00 0%, #00ff00 100%);
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+
+/* 血条 */
+.health-bar {
+  width: 100%;
+  height: 8px;
+  background: #333;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.health-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff0000 0%, #00ff00 100%);
+  border-radius: 4px;
+  transition: width 0.2s ease;
+}
+
+/* 网格背景 */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 0, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* 扫描线效果 */
+.scanlines {
+  position: relative;
+}
+
+.scanlines::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+}
+
+/* 霓虹发光 */
+.neon {
+  text-shadow: 
+    0 0 5px #00ff00,
+    0 0 10px #00ff00,
+    0 0 20px #00ff00,
+    0 0 40px #00ff00;
+}
+
+.neon-blue {
+  text-shadow: 
+    0 0 5px #00aaff,
+    0 0 10px #00aaff,
+    0 0 20px #00aaff,
+    0 0 40px #00aaff;
+}
+
+/* 警告闪烁 */
+@keyframes warning-flash {
+  0%, 100% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: rgba(255, 0, 0, 0.3);
+  }
+}
+
+.warning-flash {
+  animation: warning-flash 0.5s ease-in-out infinite;
+}
+
+/* 雪花效果 */
+@keyframes snowfall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+.snowflake {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: snowfall linear infinite;
+}
+
+/* 加载动画 */
+@keyframes loading-bar {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 70%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.loading-bar {
+  animation: loading-bar 2s ease-in-out infinite;
+}
+
+/* 游戏UI样式 */
+.game-ui {
+  font-family: 'Arial', sans-serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* 血条动画 */
+@keyframes health-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.health-low {
+  animation: health-pulse 0.5s ease-in-out infinite;
+}
+
+/* 按钮悬停效果 */
+button {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a3a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00ff00;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00cc00;
+}
